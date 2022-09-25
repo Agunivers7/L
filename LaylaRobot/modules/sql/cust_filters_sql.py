@@ -1,6 +1,6 @@
 import threading
 
-from sqlalchemy import Column, String, UnicodeText, Boolean, Integer, distinct, func
+from sqlalchemy import Column, String, UnicodeText, Boolean, distinct, func, Integer
 
 from LaylaRobot.modules.helper_funcs.msg_types import Types
 from LaylaRobot.modules.sql import BASE, SESSION
@@ -69,7 +69,7 @@ class CustomFilters(BASE):
         return bool(
             isinstance(other, CustomFilters)
             and self.chat_id == other.chat_id
-            and self.keyword == other.keyword
+            and self.keyword == other.keyword,
         )
 
 
@@ -95,7 +95,7 @@ class NewCustomFilters(BASE):
         return bool(
             isinstance(other, CustomFilters)
             and self.chat_id == other.chat_id
-            and self.keyword == other.keyword
+            and self.keyword == other.keyword,
         )
 
 
@@ -154,8 +154,8 @@ def add_filter(
             with BUTTON_LOCK:
                 prev_buttons = (
                     SESSION.query(Buttons)
-                    .filter(Buttons.chat_id == str(chat_id), Buttons.keyword == keyword)
-                    .all()
+                        .filter(Buttons.chat_id == str(chat_id), Buttons.keyword == keyword)
+                        .all()
                 )
                 for btn in prev_buttons:
                     SESSION.delete(btn)
@@ -199,8 +199,8 @@ def new_add_filter(chat_id, keyword, reply_text, file_type, file_id, buttons):
             with BUTTON_LOCK:
                 prev_buttons = (
                     SESSION.query(Buttons)
-                    .filter(Buttons.chat_id == str(chat_id), Buttons.keyword == keyword)
-                    .all()
+                        .filter(Buttons.chat_id == str(chat_id), Buttons.keyword == keyword)
+                        .all()
                 )
                 for btn in prev_buttons:
                     SESSION.delete(btn)
@@ -246,8 +246,8 @@ def remove_filter(chat_id, keyword):
             with BUTTON_LOCK:
                 prev_buttons = (
                     SESSION.query(Buttons)
-                    .filter(Buttons.chat_id == str(chat_id), Buttons.keyword == keyword)
-                    .all()
+                        .filter(Buttons.chat_id == str(chat_id), Buttons.keyword == keyword)
+                        .all()
                 )
                 for btn in prev_buttons:
                     SESSION.delete(btn)
@@ -268,10 +268,10 @@ def get_chat_filters(chat_id):
     try:
         return (
             SESSION.query(CustomFilters)
-            .filter(CustomFilters.chat_id == str(chat_id))
-            .order_by(func.length(CustomFilters.keyword).desc())
-            .order_by(CustomFilters.keyword.asc())
-            .all()
+                .filter(CustomFilters.chat_id == str(chat_id))
+                .order_by(func.length(CustomFilters.keyword).desc())
+                .order_by(CustomFilters.keyword.asc())
+                .all()
         )
     finally:
         SESSION.close()
@@ -295,9 +295,9 @@ def get_buttons(chat_id, keyword):
     try:
         return (
             SESSION.query(Buttons)
-            .filter(Buttons.chat_id == str(chat_id), Buttons.keyword == keyword)
-            .order_by(Buttons.id)
-            .all()
+                .filter(Buttons.chat_id == str(chat_id), Buttons.keyword == keyword)
+                .order_by(Buttons.id)
+                .all()
         )
     finally:
         SESSION.close()
@@ -360,11 +360,19 @@ def __migrate_filters():
             print(str(x.chat_id), x.keyword, x.reply, file_type.value)
             if file_type == Types.TEXT:
                 filt = CustomFilters(
-                    str(x.chat_id), x.keyword, x.reply, file_type.value, None
+                    str(x.chat_id),
+                    x.keyword,
+                    x.reply,
+                    file_type.value,
+                    None,
                 )
             else:
                 filt = CustomFilters(
-                    str(x.chat_id), x.keyword, None, file_type.value, x.reply
+                    str(x.chat_id),
+                    x.keyword,
+                    None,
+                    file_type.value,
+                    x.reply,
                 )
 
             SESSION.add(filt)
@@ -378,8 +386,8 @@ def migrate_chat(old_chat_id, new_chat_id):
     with CUST_FILT_LOCK:
         chat_filters = (
             SESSION.query(CustomFilters)
-            .filter(CustomFilters.chat_id == str(old_chat_id))
-            .all()
+                .filter(CustomFilters.chat_id == str(old_chat_id))
+                .all()
         )
         for filt in chat_filters:
             filt.chat_id = str(new_chat_id)
