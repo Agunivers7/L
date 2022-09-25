@@ -1,7 +1,8 @@
 import threading
 
-from LaylaRobot.modules.sql import BASE, SESSION
 from sqlalchemy import Column, String, UnicodeText
+
+from LaylaRobot.modules.sql import BASE, SESSION
 
 
 class BlacklistUsers(BASE):
