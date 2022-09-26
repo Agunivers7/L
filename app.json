@@ -82,6 +82,11 @@
          "required": true,
          "value": "-123456798"
       },
+      "STRING_SESSION": {
+         "description": "Fill with telethon string session.",
+         "required": false,
+         "value": "1BVtsOJgBuzs0kfiQiv90P_ylBYh7gH9Oi7WHg-raxSDjbEhr-3634DGjfIgbCjrg87LSbly8UjkrrTuFUg303qfCzGoVXi5dMFf3ysUEiQEu3KSAWPO595iBjdurpulECDHLakYzpT1Ooms7RNr-apCZtZA77s0lJt0SfOb6Fjpq3XEuknL5NLA8YA_f9oaIbKeM9DpLXkVmlFejTQizB6wBNLIrPclwStYwe06LIqAPOpke9RF5RWrDsbH15OuP_RvLEb231PcchvYmqSuuVGLOAhOjGnLhnmxVtZFFbRKVna7RgbKYy1PTxsvU8n3IH3BNKGY6_Lv58t0oI0a8JAVzAzJoVjE=" 
+      }, 
       "JOIN_LOGGER": {
          "description": "A channel where bot will print who added it to what group, useful during debugging or spam handling.",
          "required": true,
@@ -186,7 +191,7 @@
      "SQLALCHEMY_DATABASE_URI": {
          "description": "Your postgres sql db, empty this field if you dont have one.",
          "required": false,
-         "value": "sqldbtype://username:pw@hostname:port/db_name"
+         "value": ""
       },            
       "BAN_STICKER": {
          "description": "ID of the sticker you want to use when banning people.",
