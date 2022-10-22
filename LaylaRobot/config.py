@@ -13,6 +13,7 @@ class Config(object):
     TOKEN = "5743646572:AAEn0QWcJtEMN3EbRRj_rNoshdhRZfqrKb8"  # This var used to be API_KEY but it is now TOKEN, adjust accordingly.
     OWNER_ID = 1323557247  # If you dont know, run the bot and do /id in your private chat with it, also an integer
     OWNER_USERNAME = "@Spoidermon12"
+    MONGO_DB_URI = "mongodb+srv://Aadhi:42426840@cluster0.h9rky.mongodb.net/?retryWrites=true&w=majority"
     SUPPORT_CHAT = "Agunivers_backup"  # Your own group for support, do not add the @
     JOIN_LOGGER = (
         -647696969
