@@ -33,6 +33,17 @@ class Config(object):
     SPAMWATCH_SUPPORT_CHAT = "@SpamWatchSupport"
 
 
+    # OPTIONAL
+    ##List of id's -  (not usernames) for users which have sudo access to the bot.
+    DRAGONS = 1323557247
+    ##List of id's - (not usernames) for developers who will have the same perms as the owner
+    DEV_USERS = 1323557247
+    ##List of id's (not usernames) for users which are allowed to gban, but can also be banned.
+    DEMONS = 1323557247
+    # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
+    TIGERS = 1323557247
+    WOLVES = 1323557247
+    DONATION_LINK = None  # EG, paypal
     CERT_PATH = None
     PORT = 5000
     DEL_CMDS = True  # Delete commands that users dont have access to, like delete /ban if a non admin uses it.
