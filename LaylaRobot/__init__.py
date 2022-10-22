@@ -44,7 +44,7 @@ if ENV:
         DEV_USERS = "1323557247"
     
 
-    INFOPIC = bool(os.environ.get("INFOPIC", False))
+    INFOPIC = "https://telegra.ph/file/fb8714af457ee4d8d6291.jpg"
     EVENT_LOGS = os.environ.get("EVENT_LOGS", None)
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
     URL = os.environ.get("URL", "")  # Does not contain token
