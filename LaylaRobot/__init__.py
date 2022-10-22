@@ -48,7 +48,7 @@ if ENV:
    
     
     
-    API_ID = 10651048
+    
     API_HASH = "37775aca7d11f450ecde375baac17fe7"
     BOT_ID = "5743646572"
     DB_URI = "postgres://jvxgctfh:1Jf49IZA-vGumNNojNaLeOHCnMC6yfRn@tyke.db.elephantsql.com/jvxgctfh"
