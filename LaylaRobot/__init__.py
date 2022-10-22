@@ -43,18 +43,6 @@ if ENV:
         DRAGONS = "1323557247"
         DEV_USERS = "1323557247"
     
-
-    
-   
-    
-    
-    
-    API_HASH = "37775aca7d11f450ecde375baac17fe7"
-    BOT_ID = "5743646572"
-    DB_URI = "postgres://jvxgctfh:1Jf49IZA-vGumNNojNaLeOHCnMC6yfRn@tyke.db.elephantsql.com/jvxgctfh"
-    MONGO_DB_URI = "mongodb+srv://Aadhi:42426840@cluster0.h9rky.mongodb.net/?retryWrites=true&w=majority"
-    DONATION_LINK = os.environ.get("DONATION_LINK")
-    
 else:
     from LaylaRobot.config import Development as Config
 
